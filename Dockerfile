@@ -14,14 +14,15 @@ RUN apt-get update && apt-get install -y wget unzip vim
 RUN mkdir /opt/addons
 
 ## Download required files:
-RUN wget -O /tmp/repo_tesa.zip https://github.com/vst/tesa/archive/0.0.21.zip
+RUN wget -O /tmp/repo_tesa.zip https://github.com/vst/tesa/archive/0.0.23.zip
 
 ## Unzip stuff:
 RUN find /tmp/ -iname "repo_*.zip" -exec unzip -d /tmp/repos {} \;
 
 ## Move stuff:
 RUN rm -Rf /opt/addons/*
-RUN cp -Rf /tmp/repos/tesa-0.0.21/* /opt/addons/
+RUN cp -Rf /tmp/repos/tesa-*/* /opt/addons/
+RUN chown -R odoo /opt/addons
 
 ## Delete stuff:
 RUN find /tmp/ -iname "repo_*.zip" -delete

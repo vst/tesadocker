@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y wget unzip vim
 RUN mkdir /opt/addons
 
 ## Download required files:
-RUN wget -O /tmp/repo_tesa.zip https://github.com/vst/tesa/archive/0.0.24.zip
+RUN wget -O /tmp/repo_tesa.zip https://github.com/vst/tesa/archive/0.0.25.zip
 
 ## Unzip stuff:
 RUN find /tmp/ -iname "repo_*.zip" -exec unzip -d /tmp/repos {} \;
